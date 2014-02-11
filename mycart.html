@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="en">
+  <head>
+    <!-- Essential information for facebook plugins -->
+    <meta property="fb:app_id" content="555442104533161"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="鈺荃坊">
+    <meta property="og:site_name" content="鈺荃坊--鈺精選咖啡">
+    <meta property="og:image" content="http://windrippleyc.appspot.com/img/logo.jpg">
+    <meta property="og:type" content="coffee">
+
+    <title>鈺荃坊--鈺精選咖啡</title>
+    <link href="img/favicon1.ico" rel="SHORTCUT ICON">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+      <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.twzipcode.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
+ <script>
+
+$(document).ready(function(){
+ 
+ $('#contact-form').validate(
+ {
+  rules: {
+    cosumer: {
+      minlength: 1,
+      required: true
+    },
+    email: {
+      required: true,
+      email: true
+    },
+    
+    address: {
+      minlength: 2,
+      required: true
+    }
+  },
+  highlight: function(element) {
+    $(element).closest('.control-group').removeClass('success').addClass('error');
+  },
+  success: function(element) {
+    element
+    .text('OK!').addClass('valid')
+    .closest('.control-group').removeClass('error').addClass('success');
+  }
+ });
+}); // end document.ready
+</script>
+<style>
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(assets/img/valid.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+</style>
+
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style='font-weight: bold;' href="/">鈺荃坊</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">About</a></li>
+            <li><a href="/coffee_list?type=all">鈺精選咖啡</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+      {%if captcha == 'true'%}
+      <div class="row">
+  <form action="/confirm" method='post' id="contact-form" class="form-horizontal">
+        <div class="col-md-3">
+        <label class='col-md-12' style="font-size:150% ;color:#000080;">1.填寫基本資料</label>
+          <div class="col-sm-12 col-lg-12 col-md-12">
+            
+           <fieldset>
+    <div class="control-group">
+       <label  style="font-size:120%" ><h style="font-size:120% ; background-color: #AAAAAA;" >姓名</h>&nbsp;<label style="font-size:80% ;color:brown;">*收件人</label></label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" name="cosumer" id="cosumer">
+      </div>
+    </div>
+  </br>
+    <div class="control-group">
+     <label style="font-size:120%"  for="inputEmail3"><h style="font-size:120% ; background-color: #AAAAAA;" >Email</h>&nbsp;<label style="font-size:80% ;color:brown;">*傳送訂購資訊</label></label>
+      <div class="controls">
+        <input type="email" class="input-xlarge" name="email" id="email">
+      </div>
+    </div>
+    </br>
+    <div class="control-group">
+      <label style="font-size:120%" for="inputEmail3" ><h style="font-size:120% ; background-color: #AAAAAA;" >地址</h>&nbsp;<label style="font-size:80% ;color:brown;">*收件地址</label></label>
+      <div class="controls">
+        
+                    <div id="twzipcode">
+                        
+                         <div data-role="zipcode" data-style="hide"></div>
+                   </div>
+                    <input type="text" class="input-xlarge" id="address" name="address" placeholder="路、街、段、巷、弄、號、樓">
+                  </div>
+    
+    </div>
+    </br>
+     <div class="control-group">
+       <label style="font-size:120%"><h style="font-size:120% ; background-color: #AAAAAA;" >性別</h></label>
+      <div class="controls">
+       
+                   
+                        <label>
+                      <input  type="radio" name="sex" id="optionsRadios1" value="男" checked>
+                          男
+                        </label>
+
+                        <label>
+                      <input  type="radio" name="sex" id="optionsRadios1" value="女" checked>
+                          女
+                        </label>
+                     </div>
+                    
+     
+    </div>
+   
+  </fieldset>
+
+                   
+            
+
+            </div>
+        </div>
+    <div class="col-md-9">
+       
+           <label class='col-md-12' style="font-size:150% ;color:#000080;">2.選擇商品數量</label>
+           
+
+           <div class="col-md-12">     
+            <a href="/coffee_list?type=all"  class="btn btn-primary" data-toggle="modal">繼續選購</a>
+            <a role="button" class="btn btn-danger" data-toggle="modal" onclick='abandon()'>放棄清單</a>
+            <button type="submit" class="btn btn-success">確認訂單</button>
+         </div>
+        
+  <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://1.bp.blogspot.com/-FyulClyyJeQ/UpinCUkDRzI/AAAAAAAADWo/sHrK_MP5IeA/s640/100%25E5%2585%25AC%25E5%2585%258B.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">百分百品賞包<label style='font-size:90%;color:brown'>&nbsp;&nbsp;&nbsp;&nbsp;100g</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '百分百品賞包' %}
+      <!-- Inline Radios -->
+       <li>
+                <label class="control-label-left" for="selectbasic"><a href='/{{greeting.product_uuid}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h>
+
+               </label>
+               <div>
+               <label>數量</label> 
+                 <input type="hidden"  id='{{greeting.product_uuid}}_name' name='{{greeting.product_uuid}}_name' value='{{greeting.product_name}}'/>
+                <input type="hidden"  id='{{greeting.product_uuid}}_type' name='{{greeting.product_uuid}}_type' value='{{greeting.product_type}}'/>
+                <input type="hidden"  id='{{greeting.product_uuid}}_price' name='{{greeting.product_uuid}}_price' value='{{greeting.porduct_price}}'/>
+                <select id="{{greeting.product_uuid}}" name="{{greeting.product_uuid}}" class="selectpicker" onchange="cal(this.form.{{greeting.product_uuid}}.value,{{greeting.porduct_price}},'{{greeting.product_uuid}}_test')">
+                    <option checked>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                  </select>
+
+                  <label id="{{greeting.product_uuid}}_test"></label>
+              </div>
+</li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+ <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://4.bp.blogspot.com/-VdRCLTrZBGQ/UpinF0_yRqI/AAAAAAAADWw/iFIoe2fdVJ4/s640/%25E7%258F%25BE%25E7%2583%2598%25E7%2584%2599%257E1.JPG.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">精品咖啡豆<label style='font-size:70%;color:brown'>&nbsp;&nbsp;&nbsp;&nbsp;半磅裝/225g</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '精品咖啡豆' %}
+      <!-- Inline Radios -->
+       <li>
+                 <label class="control-label-left" for="selectbasic"><a href='/{{greeting.product_uuid}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h>
+
+               </label>
+               <div>
+               <label>數量</label> 
+               <input type="hidden"  id='{{greeting.product_uuid}}_name' name='{{greeting.product_uuid}}_name' value='{{greeting.product_name}}'/>
+                <input type="hidden"  id='{{greeting.product_uuid}}_type' name='{{greeting.product_uuid}}_type' value='{{greeting.product_type}}'/>
+                     <input type="hidden"  id='{{greeting.product_uuid}}_price' name='{{greeting.product_uuid}}_price' value='{{greeting.porduct_price}}'/>
+                <select id="{{greeting.product_uuid}}" name="{{greeting.product_uuid}}" class="selectpicker" onchange="cal(this.form.{{greeting.product_uuid}}.value,{{greeting.porduct_price}},'{{greeting.product_uuid}}_test')">
+                    <option checked>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                  </select>
+                  <label id="{{greeting.product_uuid}}_test"></label>
+              </div>
+</li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+
+  <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://2.bp.blogspot.com/--7WssF6Gxqc/UpeIbMvA_dI/AAAAAAAADVM/M-iL68DTSjI/s640/%E6%8E%9B%E8%80%B3%E5%BC%8F%E5%92%96%E5%95%A1.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">掛耳濾泡式咖啡<label style='font-size:70%;color:brown'>&nbsp;12g包/10包入</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '掛耳濾泡式咖啡' %}
+      <!-- Inline Radios -->
+       <li>
+               <label class="control-label-left" for="selectbasic"><a href='/{{greeting.product_uuid}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h>
+
+               </label>
+               <div>
+               <label>數量</label> 
+                 <input type="hidden"  id='{{greeting.product_uuid}}_name' name='{{greeting.product_uuid}}_name' value='{{greeting.product_name}}'/>
+
+                  <input type="hidden"  id='{{greeting.product_uuid}}_type' name='{{greeting.product_uuid}}_type' value='{{greeting.product_type}}'/>
+                       <input type="hidden"  id='{{greeting.product_uuid}}_price' name='{{greeting.product_uuid}}_price' value='{{greeting.porduct_price}}'/>
+                <select id="{{greeting.product_uuid}}" name="{{greeting.product_uuid}}" class="selectpicker" onchange="cal(this.form.{{greeting.product_uuid}}.value,{{greeting.porduct_price}},'{{greeting.product_uuid}}_test')">
+                    <option checked>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                  </select>
+
+
+                  <label id="{{greeting.product_uuid}}_test"></label>
+                 </div>
+      </li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+
+
+
+
+        </div>
+
+
+
+           
+</form>
+
+  </div>
+    {%else%}
+    <div class="row">
+
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href="/mycart1" class="list-group-item active" style='font-size:130%;'>我的購物車</a>
+            <a href="/coffee_list?type=all" class="list-group-item"style='font-weight: bold;'>鈺精選咖啡</a>
+            <a href="/coffee_list?type=精品咖啡豆" class="list-group-item" style='font-weight: bold;'>精品咖啡豆</a>
+            <a href="/coffee_list?type=百分百品賞包" class="list-group-item" style='font-weight: bold;'>百分百品賞包</a>
+            <a href="#" class="list-group-item" style='font-weight: bold;'>掛耳濾泡式咖啡</a>
+          </div>
+          <div class='hidden-xs'>
+          <img src="/img/logo.jpg" style='height:220px;width:263px;'></img>
+        </div>
+
+        </div>
+
+        <div class="col-md-9">
+         <div class="col-md-12">
+           
+              <iframe src="http://2.bp.blogspot.com/--YGIrny-6JE/UqhDkTarEQI/AAAAAAAADhs/qDdFCUqS3MY/s1600/%E9%88%BA%E8%8D%83%E5%9D%8A.jpg" width="91%" height="350" scrolling="yes">
+</iframe>
+            
+           </div>
+    <form action="/mycart" method="post">
+
+    <!-- ... your form code here ... -->
+    <label style='color:red;'>{%if captcha =='false'%}驗證碼錯誤{%endif%}</label>
+    <script type="text/javascript"
+       src="http://www.google.com/recaptcha/api/challenge?k=6LcqLewSAAAAAEKAESsCgCfOLrp3jswzTVneVRg6">
+    </script>
+    <noscript>
+       <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcqLewSAAAAAEKAESsCgCfOLrp3jswzTVneVRg6"
+           height="300" width="500" frameborder="0"></iframe><br>
+       <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+       </textarea>
+       <input type="hidden" name="recaptcha_response_field"
+           value="manual_challenge">
+    </noscript>
+    <button class='btn btn-danger'>送出</button>
+    <!-- ... more of your form code here ... -->
+
+  </form>
+</div>
+</div>
+    {%endif%}
+
+    <script type="text/javascript">
+       
+          function cal(f,price,uid)
+          { 
+
+            v1 = price * f;
+          
+            document.getElementById(uid).innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$'+v1;
+            document.getElementById(uid).value = v1;
+
+         
+          
+           
+          }
+     </script>
+
+
+    <div class="container">
+
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Copyright &copy; Company 2013</p>
+
+          </div> 
+
+          <div class="col-lg-3">
+           <div class="fb-like" data-href="http://windrippleyc.appspot.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+          </div> 
+
+           <div class="col-lg-3">
+            <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300" data-href="http://windrippleyc.appspot.com/"></div>
+        </div>
+
+          </div> 
+
+         
+        <div id="fb-root"></div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript -->
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=555442104533161";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+    <script>
+
+$(function () {
+    $('#twzipcode').twzipcode({
+        countyName: 'addr_county',
+        districtName: 'addr_area',
+        zipcodeName: 'addr_zip'
+    });
+});
+</script>
+
+
+
+
+
+    
+
+
+      <script type="text/javascript">
+        window.___gcfg = {lang: 'zh-TW'};
+
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+  </body>
+</html>
+{% endautoescape %}

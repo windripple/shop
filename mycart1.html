@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="en">
+  <head>
+    <!-- Essential information for facebook plugins -->
+    <meta property="fb:app_id" content="555442104533161"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="鈺荃坊">
+    <meta property="og:site_name" content="鈺荃坊--鈺精選咖啡">
+    <meta property="og:image" content="http://windrippleyc.appspot.com/img/logo.jpg">
+    <meta property="og:type" content="coffee">
+
+    <title>鈺荃坊--鈺精選咖啡</title>
+    <link href="img/favicon1.ico" rel="SHORTCUT ICON">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style='font-weight: bold;' href="/">鈺荃坊</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">About</a></li>
+            <li><a href="/coffee_list?type=all">鈺精選咖啡</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3 hidden-xs">
+          <div class="list-group">
+            <a href="/mycart1" class="list-group-item active" style='font-size:130%;'>我的購物車</a>
+            <a href="/coffee_list?type=all" class="list-group-item {% if product_type=='all' %}active{%endif%} "style='font-weight: bold;'>鈺精選咖啡</a>
+            <a href="/coffee_list?type=精品咖啡豆" class="list-group-item {% if product_type=='精品咖啡豆' %}active{%endif%}" style='font-weight: bold;'>精品咖啡豆</a>
+            <a href="/coffee_list?type=百分百品賞包" class="list-group-item {% if product_type=='百分百品賞包' %}active{%endif%} " style='font-weight: bold;'>百分百品賞包</a>
+            <a href="/coffee_list?type=掛耳濾泡式咖啡" class="list-group-item {% if product_type=='掛耳濾泡式咖啡' %}active{%endif%} " style='font-weight: bold;'>掛耳濾泡式咖啡</a>
+          </div>
+          <div class='hidden-xs'>
+          <img src="/img/logo.jpg" style='height:220px;width:263px;'></img>
+        </div>
+
+        </div>
+
+        <div class="col-md-9">
+       
+          
+ <div class="col-md-5">
+           {%if check_cart=='False'%}
+            <a href="/coffee_list?type=all"  class="btn btn-primary" data-toggle="modal">繼續選購</a>
+            <a role="button" class="btn btn-danger" data-toggle="modal" onclick='abandon()'>放棄清單</a>
+            <a href="/vertify" role="button" class="btn btn-success" data-toggle="modal">確認訂單</a>
+            {%else%}
+            <label style='color:brown;border-style:double;'>尚無購物清單</label>
+            <a href="/coffee_list?type=all"  class="btn btn-primary" data-toggle="modal">繼續選購</a>
+            {%endif%}
+      </div>     
+
+       <label class='col-md-6' style="font-size:150% ;color:#000080;">購物車清單</label>
+         
+        
+  <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://1.bp.blogspot.com/-FyulClyyJeQ/UpinCUkDRzI/AAAAAAAADWo/sHrK_MP5IeA/s640/100%25E5%2585%25AC%25E5%2585%258B.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">百分百品賞包<label style='font-size:90%;color:brown'>&nbsp;&nbsp;&nbsp;&nbsp;100g</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '百分百品賞包' %}
+      <!-- Inline Radios -->
+       <li>
+               <label class="control-label-left" for="selectbasic"><a target="_blank" href='{{greeting.product_intro}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h></label>
+              
+</li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+ <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://4.bp.blogspot.com/-VdRCLTrZBGQ/UpinF0_yRqI/AAAAAAAADWw/iFIoe2fdVJ4/s640/%25E7%258F%25BE%25E7%2583%2598%25E7%2584%2599%257E1.JPG.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">精品咖啡豆<label style='font-size:70%;color:brown'>&nbsp;&nbsp;&nbsp;&nbsp;半磅裝/225g</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '精品咖啡豆' %}
+      <!-- Inline Radios -->
+       <li>
+               <label class="control-label-left" for="selectbasic"><a target="_blank" href='{{greeting.product_intro}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h></label>
+              
+</li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+
+  <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail"> 
+              <img style='height:150px;width:320px;'src="http://2.bp.blogspot.com/--7WssF6Gxqc/UpeIbMvA_dI/AAAAAAAADVM/M-iL68DTSjI/s640/%E6%8E%9B%E8%80%B3%E5%BC%8F%E5%92%96%E5%95%A1.jpg" alt=""> 
+      <label class='col-md-12' style="font-size:120% ;color:green;border-style:double;">掛耳濾泡式咖啡<label style='font-size:70%;color:brown'>&nbsp;&nbsp;12g包/10包入</label></label>
+      </br>
+
+      <fieldset>
+
+              <!-- Form Name -->
+
+              <!-- Select Basic -->
+              <div class="control-group">
+              <ol> 
+            {% for greeting in greetings %}
+ {% for test in ttt %}
+  {% if greeting.product_uuid == test and greeting.product_type == '掛耳濾泡式咖啡' %}
+      <!-- Inline Radios -->
+       <li>
+               <label class="control-label-left" for="selectbasic"><a target="_blank" href='{{greeting.product_intro}}'>{{greeting.product_name}}</a>&nbsp;<h style='color:brown'>單價&nbsp;${{greeting.porduct_price}}</h></label>
+              
+</li>
+
+  {% endif %}
+
+               {% endfor %}
+                 {% endfor %}
+</ol></div> 
+ </fieldset>
+            
+              </div>
+
+            
+       
+</div>
+
+    </div>
+
+
+
+  </div>
+    <div class="container">
+
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Copyright &copy; Company 2013</p>
+
+          </div> 
+
+          <div class="col-lg-3">
+           <div class="fb-like" data-href="http://windrippleyc.appspot.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+          </div> 
+
+           <div class="col-lg-3">
+            <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300" data-href="http://windrippleyc.appspot.com/"></div>
+        </div>
+
+          </div> 
+
+         
+        <div id="fb-root"></div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript -->
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=555442104533161";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+
+
+
+      <script type="text/javascript">
+        window.___gcfg = {lang: 'zh-TW'};
+
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+ <script>
+        function abandon()
+        {
+        var r=confirm("確認放棄購物清單");
+        if (r==true)
+          {
+
+         window.location.href = "/cancel_list";
+          }
+        else
+          {
+         
+          }
+       
+        }
+      </script>
+
+  </body>
+</html>
+{% endautoescape %}

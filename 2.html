@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="en">
+  <head>
+    <!-- Essential information for facebook plugins -->
+    <meta property="fb:app_id" content="555442104533161"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="鈺荃坊">
+    <meta property="og:site_name" content="鈺荃坊--鈺精選咖啡">
+    <meta property="og:image" content="http://windrippleyc.appspot.com/img/logo.jpg">
+    <meta property="og:type" content="coffee">
+
+    <title>鈺荃坊--鈺精選咖啡</title>
+    <link href="img/favicon1.ico" rel="SHORTCUT ICON">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+      <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.twzipcode.min.js"></script>
+   <script>
+          function count(number,price,id,id2){
+
+          document.getElementById(id).innerHTML="$"+number*price;
+          document.getElementById(id).value=number*price;
+          document.getElementById(id2).value=number*price;
+         
+         
+          
+       }
+          a=0;
+         function total_price(){
+        
+           {%for i in product_list%}
+          
+          a=a+parseInt(document.getElementById('{{i[3]}}_count').value);
+          {%endfor%}
+          document.getElementById('total_price').innerHTML="$"+a;
+       }
+
+       function other_price()
+       {
+        if(a<2500)
+        {
+          a=a+100;
+        document.getElementById('other_price2').value=100;
+        document.getElementById('other_price').innerHTML='$100';
+        document.getElementById('total_price2').value=a;
+        document.getElementById('total_price').innerHTML="$"+a;
+        }else
+        {
+            document.getElementById('other_price2').value=0;
+            document.getElementById('total_price2').value=a;
+            document.getElementById('other_price').innerHTML='$0 (總價大於2500免運費)';
+        }
+
+       }
+         </script>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style='font-weight: bold;' href="/">鈺荃坊</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">About</a></li>
+            <li><a href="/coffee_list?type=all">鈺精選咖啡</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+     
+    <form class="form-horizontal" action="/sign" method="post">
+        <div class="col-md-12">
+         <div class="col-md-3">
+           <label style="font-size:160%;color:blue;">個人資料</label></br>
+           
+     <label><h style="font-size:130% ; background-color: #AAAAAA;" >姓名</h>&nbsp;<label style="font-size:80% ;color:red;">*收件人</label></br><label style="font-size:100% ;">{{user_information_list[0][0]}}</label></br>
+      <input type="hidden" id="cosumer" name="cosumer" value="{{user_information_list[0][0]}}">
+    <label><h style="font-size:130% ; background-color: #AAAAAA;" >Email</h>&nbsp;<label style="font-size:80% ;color:red;">*傳送訂購資訊</label></label></br><label style="font-size:100% ;">{{user_information_list[0][1]}}</label></br>
+     <input type="hidden" id="email" name="email" value="{{user_information_list[0][1]}}">
+    <label><h style="font-size:130% ; background-color: #AAAAAA;" >性別</h></label></br><label style="font-size:100% ;">{{user_information_list[0][2]}}</label></br>
+      <input type="hidden" id="sex" name="sex" value="{{user_information_list[0][2]}}">
+     <label><h style="font-size:130% ; background-color: #AAAAAA;" >地址</h>&nbsp;<label style="font-size:80% ;color:red;">*收件地址</label></label></br><label style="font-size:100% ;">{{user_information_list[0][3]}}{{user_information_list[0][4]}}{{user_information_list[0][5]}}{{user_information_list[0][6]}}</label>
+     <input type="hidden" id="address" name="address" value="{{user_information_list[0][3]}}{{user_information_list[0][4]}}{{user_information_list[0][5]}}{{user_information_list[0][6]}}">
+    </br>
+ 
+         </div>
+           <div class="col-md-9">
+
+       <label style="font-size:160%;color:blue;">購買商品</label>
+     
+     {%for i in product_list%}
+      <div class="col-md-12">
+        <div class="thumbnail">
+           <label><h style="font-size:100% ; background-color: #AAAAAA;" >商品名稱</h></label>
+      
+         
+         <input type="hidden" id="{{i[3]}}_name" name="{{i[3]}}_name" value="{{i[0]}}">
+        <label>{{i[0]}}</label>
+
+        <label><h style="font-size:100% ; background-color: #AAAAAA;" >類型</h></label>
+      <input type="hidden" id="{{i[3]}}_type" name="{{i[3]}}_type" value="{{i[2]}}">
+        <label>{{i[2]}}</label>
+
+        <label><h style="font-size:100% ; background-color: #AAAAAA;" >數量</h></label>
+      <input type="hidden" id="{{i[3]}}_number" name="{{i[3]}}_number" value="{{i[1]}}">
+        <label>{{i[1]}}</label>
+
+         <label><h style="font-size:100% ; background-color: #AAAAAA;" >單價</h></label>
+        <input type="hidden" id="{{i[3]}}_price" name="{{i[3]}}_price" value="{{i[4]}}">
+        <label>${{i[4]}}</label>
+
+         <label><h style="font-size:100% ; background-color: #AAAAAA;" >小計</h></label>
+          <label id="{{i[3]}}_count"></label>
+           <input type="hidden" id="{{i[3]}}_count2" name="{{i[3]}}_count2">
+         <script>count({{i[1]}},{{i[4]}},"{{i[3]}}_count","{{i[3]}}_count2");</script>
+</div>
+</div>
+     
+      {%endfor%}
+     <div class="col-md-12">
+        <label><h style="font-size:100% ; background-color: #AAAAAA;" >運費</h></label>
+         <input type="hidden" id="other_price2" name="other_price2">
+        <label id="other_price"></label>
+
+
+
+
+   </div>
+
+ 
+ <div class="col-md-12">
+            <label><h style="font-size:100% ; background-color: #AAAAAA;" >總金額</h></label>
+   <label id='total_price'style='color:red;'></label></br>
+           <input type="hidden" id="total_price2" name="total_price2">
+</div>
+
+      <div class="col-md-12">
+      <input value='返回修改' type="button" class="btn btn-danger" onclick="history.go(-1);" />  <button class="btn btn-success"  type="submit" >確認送出</button>
+ </div>
+      <script>total_price();other_price();</script>
+   
+    
+   </div>
+      
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Copyright &copy; Company 2013</p>
+
+          </div> 
+
+          <div class="col-lg-3">
+           <div class="fb-like" data-href="http://windrippleyc.appspot.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+          </div> 
+
+           <div class="col-lg-3">
+            <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300" data-href="http://windrippleyc.appspot.com/"></div>
+        </div>
+
+          </div> 
+
+         
+        <div id="fb-root"></div>
+      </footer>
+
+   
+    <!-- JavaScript -->
+
+       
+
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=555442104533161";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+      <script type="text/javascript">
+        window.___gcfg = {lang: 'zh-TW'};
+
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+
+  </body>
+</html>
+{% endautoescape %}

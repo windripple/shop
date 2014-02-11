@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="en">
+  <head>
+    <!-- Essential information for facebook plugins -->
+    <meta property="fb:app_id" content="555442104533161"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="鈺荃坊">
+    <meta property="og:site_name" content="鈺荃坊--鈺精選咖啡">
+    <meta property="og:image" content="http://windrippleyc.appspot.com/img/logo.jpg">
+    <meta property="og:type" content="coffee">
+
+    <title>鈺荃坊--鈺精選咖啡</title>
+    <link href="img/favicon1.ico" rel="SHORTCUT ICON">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style='font-weight: bold;' href="/">鈺荃坊</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">About</a></li>
+            <li><a href="/coffee_list?type=all">鈺精選咖啡</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href="/mycart1" class="list-group-item active" style='font-size:130%;'>我的購物車</a>
+            <a href="/coffee_list?type=all" class="list-group-item {% if product_type=='all' %}active{%endif%} "style='font-weight: bold;'>鈺精選咖啡</a>
+            <a href="/coffee_list?type=精品咖啡豆" class="list-group-item" style='font-weight: bold;'>精品咖啡豆</a>
+            <a href="/coffee_list?type=百分百品賞包" class="list-group-item" style='font-weight: bold;'>百分百品賞包</a>
+            <a href="/coffee_list?type=掛耳濾泡式咖啡" class="list-group-item" style='font-weight: bold;'>掛耳濾泡式咖啡</a>
+          </div>
+          <div class='logo'>
+          <img class='hidden-xs'src="/img/logo.jpg" style='height:220px;width:263px;'></img>
+        </div>
+
+        <div class="fb-facepile" data-href="http://windrippleyc.appspot.com" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
+
+        </div>
+
+        <div class="col-md-9">
+
+          <div class="row carousel-holder">
+
+            <div class="col-md-9">
+              <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" style='border-style:double;'>
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img class="slide-image" style='height:400px;width:800px;' src="http://1.bp.blogspot.com/-yS7peQt6IVg/UkRJ00Yzi8I/AAAAAAAABdE/BMrd5xPh50E/s640/%E6%B7%B1%E5%B1%B1%E4%B8%AD%E7%9A%84%E5%AE%B6%E5%BA%AD%E8%81%9A%E6%9C%83.jpg">
+                  </div>
+                  <div class="item">
+                    <img class="slide-image" style='height:400px;width:800px;' src="http://3.bp.blogspot.com/-OFj4I2riwRs/UktmKlGSv-I/AAAAAAAAB_U/FEHdy_4WDf8/s640/%25E6%2583%25A0%25E6%25B0%258F%25E5%2585%25AC%25E5%258F%25B8%25E7%25B8%25BD%25E8%25A3%2581%25E5%2590%2588%25E7%2585%25A71.jpg">
+                  </div>
+                  <div class="item">
+                    <img class="slide-image" style='height:400px;width:800px;' src="http://1.bp.blogspot.com/-5-9GRaN2858/UktmKuPTCqI/AAAAAAAAB_Q/3z-Azz1MKcI/s640/%25E5%2590%2584%25E5%25BC%258F%25E6%25B4%25BB%25E5%258B%2595%25E6%259C%2583%25E5%25A0%25B4%25E7%258F%25BE%25E7%2585%25AE%25E5%2592%2596%25E5%2595%25A1.jpg">
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </div>
+              <div class="col-md-12">
+                 <div class="thumbnail">
+               
+              <div class="fb-comments" data-href="http://windrippleyc.appspot.com" data-width="600" data-numposts="5" data-colorscheme="light"></div></div>
+            </div>
+            </div>
+             <div class="col-md-3">
+                 <div class="thumbnail  hidden-xs">
+                <img  class="img-circle" src="http://www.carascravings.com/wp-content/uploads/2012/07/profile-photo.jpg" alt="">
+                <div class="introduct ">
+                  <h>自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介自介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹自我介紹我介紹自我介紹自我介紹自我介紹</h>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-3">
+                   <div class="thumbnail">
+                <label>近期發表</label>
+                <div id="show_data"></div>
+              </div>
+              </div>
+          </div>
+
+        
+
+        </div>
+
+      </div>
+
+    </div><!-- /.container -->
+    
+    <div class="container">
+
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Copyright &copy; Company 2013</p>
+
+          </div> 
+
+          <div class="col-lg-3">
+           <div class="fb-like" data-href="http://windrippleyc.appspot.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+          </div> 
+
+
+
+          </div> 
+
+         
+        <div id="fb-root"></div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript -->
+
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=555442104533161";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+      <script type="text/javascript">
+   //=====1==== JSON feed
+   var feedUrl = 'http://yujincoffee.blogspot.com/feeds/posts/default?alt=json-in-script&callback=myFunc';
+  
+   //=====2==== 讀入 JSON 物件並處理資料
+   function myFunc(root) {
+      var html = [''];
+      var entries = root.feed.entry;
+      html.push("<ol>");
+      for(var i=0; i<8; i++) {
+      html.push("<li><a target='_blank' href="+entries[i].link[2].href+">"+entries[i].title.$t+"</a></li>");   //擷取文章標題
+      html.push(root.feed.entry[i].published.$t.substr(0,10)+'</br>');
+       
+      }
+      html.push("</ol>");
+      document.getElementById("show_data").innerHTML = html.join('');
+   }
+  
+   //=====3==== 產生匯入外部 Javascript 檔案的語法
+   function IncludeJavaScript(jsFile)  {
+      document.write('<'+'script type="text/javascript" src="'+ jsFile + '"><'+'/script>');
+   }
+   //=====4==== 進行匯入 DATA API
+   IncludeJavaScript(feedUrl);
+</script>
+
+
+
+
+  </body>
+</html>
+{% endautoescape %}
