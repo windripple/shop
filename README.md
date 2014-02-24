@@ -1,7 +1,7 @@
 shop
 ====
 
-gae python shop
+gae python coffee shop
 
 google app engine 小型咖啡購物平台
 
